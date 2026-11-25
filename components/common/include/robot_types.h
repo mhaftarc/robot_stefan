@@ -24,7 +24,7 @@ typedef enum {
 
 // one set of sensor readings, filled by the drivers
 typedef struct {
-    uint16_t line_raw[LINE_SENSOR_COUNT];  // ADC 0-4095, index 0 = leftmost sensor
+    uint8_t line[LINE_SENSOR_COUNT];       // 1 = sees black line, 0 = light floor, index 0 = leftmost
     float distance_cm;                     // HC-SR04, -1 = no echo
     float battery_v;                       // battery voltage in V
     uint32_t timestamp_ms;                 // time of the reading
@@ -43,8 +43,6 @@ typedef struct {
     float line_ki;
     float line_kd;
     float line_base_speed;                 // 0 .. 1
-    uint16_t line_min[LINE_SENSOR_COUNT];  // calibration, ADC on white
-    uint16_t line_max[LINE_SENSOR_COUNT];  // calibration, ADC on black
 
     // object following
     float follow_target_cm;  // distance to keep, about 20 cm

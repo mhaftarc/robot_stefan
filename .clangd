@@ -1,2 +1,4 @@
 CompileFlags:
     Remove: [-f*, -m*]
+    # gcc builtin headers (float.h, stdarg.h...), clangd doesnt find them by itself
+    Add: [-isystem, C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/15.2.0/include]
